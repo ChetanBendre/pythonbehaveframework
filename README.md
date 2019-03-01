@@ -18,3 +18,4 @@ pip install -r requirements.txt
 
 While using project every time we need to active project (.\venv\Scripts\activate)
 
+test the code
