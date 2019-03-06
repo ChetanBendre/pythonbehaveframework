@@ -20,3 +20,7 @@ def step_impl(context, expected_count):
     assert actual_count == expected_count, (actual_count,"is not matching with",expected_count)
 
 
+@then(u'click on {link_name} link of home page')
+def step_impl(context, link_name):
+    element = sb.identify_element("linktext", link_name)
+    sb.perform_action('click', element)
