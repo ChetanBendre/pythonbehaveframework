@@ -14,6 +14,7 @@ def before_scenario(context, scenario):
 
 
 def after_scenario(context, scenario):
+    sb.capture_screenshot("./logs/screenshots/"+scenario.name+".png")
     sb.close_browser()
 
 

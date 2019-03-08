@@ -53,12 +53,12 @@ def get_page_details(detail_type):
 
 def select_value_from_dropdown(element, select_by, value):
     select = Select(element)
-
+    #sel = Select(driver.find_element_by_id("dropdown"))
     if select_by == 'index':
-        select.select_by_index(value)
+        select.select_by_index(int(value))
     elif select_by == 'value':
         select.select_by_value(value)
-    elif select_by == 'text':
+    elif select_by == 'visibletext':
         select.select_by_visible_text(value)
 
 
@@ -77,6 +77,12 @@ def switch_to_another_window(window_title):
             else:
                 continue
 
+def switch_to_another_frame():
+    driver.switch_to.frame("frame-top")
+    driver.switch_to.frame("frame-middle")
+    driver.switch_to.frame("frame-top")
+
+
 
 def perform_action(action_type, element, value=None):
     value_to_be_returned = None
@@ -87,6 +93,7 @@ def perform_action(action_type, element, value=None):
 
     return value_to_be_returned
 
+
 def handle_alert_popup(action_type, value):
     alert_obj = driver.switch_to.alert
     if action_type == 'accept':
@@ -95,3 +102,8 @@ def handle_alert_popup(action_type, value):
         alert_obj.dismiss()
     elif action_type == 'settext':
         alert_obj.send_keys(value)
+
+
+def capture_screenshot(filename):
+    driver.save_screenshot(filename)
+
