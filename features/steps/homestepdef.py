@@ -15,7 +15,7 @@ def step_impl(context, assertion_type, expected_value):
 
 @then(u'verify count of links is {expected_count}')
 def step_impl(context, expected_count):
-    elements = sb.identify_element("tagname","a",True)
+    elements = sb.identify_element("tagname", "a", True)
     actual_count = len(elements)
     expected_count = int(expected_count)
     assert actual_count == expected_count, (actual_count,"is not matching with",expected_count)
